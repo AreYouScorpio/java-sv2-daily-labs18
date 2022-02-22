@@ -5,6 +5,7 @@ import org.flywaydb.core.Flyway;
 import org.junit.Before;
 import org.junit.Test;
 
+
 import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
@@ -12,6 +13,8 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 public class EmployeesDaoTest {
 
     private EmployeesDao employeesDao;
+
+    //1. gyak feladat Spring
 
     @Before
     public void init() {
