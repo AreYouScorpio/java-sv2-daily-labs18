@@ -14,7 +14,7 @@ public class EmployeesDao2 {
     private JdbcTemplate jdbcTemplate;
 
     public EmployeesDao2(DataSource dataSource) {
-        this.jdbcTemplate = new JdbcTemplate(dataSource);
+        jdbcTemplate = new JdbcTemplate(dataSource);
     }
 
     public long createEmployee(String name){

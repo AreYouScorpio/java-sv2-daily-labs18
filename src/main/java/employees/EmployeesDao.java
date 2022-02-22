@@ -10,7 +10,7 @@ public class EmployeesDao {
     private JdbcTemplate jdbcTemplate;
 
     public EmployeesDao(DataSource dataSource) {
-        this.jdbcTemplate = new JdbcTemplate(dataSource);
+        jdbcTemplate = new JdbcTemplate(dataSource);
     }
 
     public void createEmployee(String name){
