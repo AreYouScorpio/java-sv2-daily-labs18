@@ -4,6 +4,7 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 import java.util.TreeMap;
@@ -12,15 +13,32 @@ public class teszt2 {
 
     private Map<String, List> words = new TreeMap<>();
 
+    public Map<String, List> getWords() {
+        return words;
+    }
+
+    public void setWords(Map<String, List> words) {
+        this.words = words;
+    }
+
+
+
     void readFile(Path p) throws IllegalStateException {
         try {
             List<String> lines = Files.readAllLines(p);
+            int lineNumber = 1;
             for (String line : lines) {
-                String s[] = line.split(" ");
-                words.add(new words(s[0], s[1]));
+                String strings[] = line.split(" ");
+                for(String s:strings) {
+                    if(!words.containsKey(s))
+                        words.put(s, new ArrayList());
+                    words.get(s).add(lineNumber);
+                }
+                lineNumber++;
             }
-        } catch (IOException ise) {
-            throw new IllegalStateException("Can't read file!", ise);
+        }catch(IOException ise)
+        {
+            throw new IllegalStateException("Can't read file!",ise);
         }
     }
 
