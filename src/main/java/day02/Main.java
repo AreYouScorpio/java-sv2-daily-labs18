@@ -14,7 +14,7 @@ public class Main {
             dataSource.setUser("root");
             dataSource.setPassword("root");
         } catch (SQLException sqlException) {
-            throw new IllegalStateException("sss", sqlException);
+            throw new IllegalStateException("Cannot read DataBase!", sqlException);
         }
 
         Flyway flyway = Flyway.configure().locations("db/migration/bookstore").dataSource(dataSource).load();
@@ -29,6 +29,7 @@ public class Main {
         booksRepository.updatePieces(1L, 30);
 
         System.out.println();
+
     }
 
 
