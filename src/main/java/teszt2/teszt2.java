@@ -1,5 +1,7 @@
 package teszt2;
 
+import org.apache.commons.collections.list.SetUniqueList;
+
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.io.FileWriter;
@@ -7,20 +9,17 @@ import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Map;
-import java.util.TreeMap;
+import java.util.*;
 
 public class teszt2 {
 
-    private Map<String, List> words = new TreeMap<>();
+    private Map<String, Set> words = new TreeMap<>();
 
-    public Map<String, List> getWords() {
+    public Map<String, Set> getWords() {
         return words;
     }
 
-    public void setWords(Map<String, List> words) {
+    public void setWords(Map<String, Set> words) {
         this.words = words;
     }
 
@@ -33,7 +32,7 @@ public class teszt2 {
                 String strings[] = line.split(" ");
                 for (String s : strings) {
                     if (!words.containsKey(s))
-                        words.put(s, new ArrayList());
+                        words.put(s, new TreeSet());
                     words.get(s).add(lineNumber);
                 }
                 lineNumber++;
@@ -46,11 +45,12 @@ public class teszt2 {
 
     void writeFile(Path p) throws IOException {
         FileWriter outFile = new FileWriter(p.toString());
-        for (Map.Entry<String, List> entry : words.entrySet()) {
+        for (Map.Entry<String, Set> entry : words.entrySet()) {
             String word = entry.getKey();
             outFile.write(word);
             outFile.write(' ');
             outFile.write(entry.getValue().toString());
+            outFile.write("\n");
         }
         outFile.close();
 
@@ -58,8 +58,8 @@ public class teszt2 {
 
     public static void main(String[] args) throws IOException {
         teszt2 teszt2 = new teszt2();
-        teszt2.readFile(Path.of("example.txt"));
-        teszt2.writeFile(Path.of("example-index.txt"));
+        teszt2.readFile(Path.of("C:\\Users\\Akos\\IdeaProjects\\java-sv2-daily-labs18\\src\\main\\resources\\example.txt"));
+        teszt2.writeFile(Path.of("C:\\Users\\Akos\\IdeaProjects\\java-sv2-daily-labs18\\src\\main\\resources\\example-index.txt"));
     }
 
 }

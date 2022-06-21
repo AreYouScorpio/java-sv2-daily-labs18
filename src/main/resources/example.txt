@@ -1,2 +1,2 @@
 Peter is hungry
-Hungry Peter is eating
+Hungry Peter is eating Peter
