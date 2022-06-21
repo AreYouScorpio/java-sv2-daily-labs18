@@ -53,7 +53,7 @@ public class teszt2 {
             outFile.write("\n");
         }
         outFile.close();
-
+        System.out.println(outFile.toString());
     }
 
     public static void main(String[] args) throws IOException {
