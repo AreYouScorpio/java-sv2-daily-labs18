@@ -17,20 +17,19 @@ public class teszt2 {
             List<String> lines = Files.readAllLines(p);
             for (String line : lines) {
                 String s[] = line.split(" ");
-                humans.add(new Human(s[0], s[1]));
+                words.add(new words(s[0], s[1]));
             }
-        }catch(IOException ise)
-        {
-            throw new IllegalStateException("Can't read file!",ise);
+        } catch (IOException ise) {
+            throw new IllegalStateException("Can't read file!", ise);
         }
     }
 
 
-    void writeFile(Path p) throws IOException{
+    void writeFile(Path p) throws IOException {
         FileWriter outFile = new FileWriter(p.toString());
-        for(H h:h) {
-            char first=h.getIdentityNumber().charAt(0);
-            if(first=='1'||first=='3') {
+        for (H h : h) {
+            char first = h.getIdentityNumber().charAt(0);
+            if (first == '1' || first == '3') {
                 outFile.write(h.getName());
                 outFile.write(";");
                 outFile.write(h.getIdentityNumber());
@@ -38,5 +37,14 @@ public class teszt2 {
             }
         }
         outFile.close();
+
     }
+
+    public static void main(String[] args) {
+        teszt2 teszt2 = new teszt2();
+
+
+    }
+
+}
 
